@@ -15,17 +15,20 @@ jobs:
 
     steps:
       - name: Checkout
+        working-directory: docs
         uses: actions/checkout@v2
         with:
           fetch-depth: 0  # for posts's lastmod
 
       - name: Setup Ruby
+        working-directory: docs
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
           bundler-cache: true
 
       - name: Check baseurl
+        working-directory: docs
         run: |
           baseurl="$(grep '^baseurl:' _config.yml | sed "s/.*: *//;s/['\"]//g;s/#.*//")"
           if [[ -n $baseurl ]]; then
@@ -33,16 +36,19 @@ jobs:
           fi
 
       - name: Build Site
+        working-directory: docs
         env:
           JEKYLL_ENV: production
         run: |
           bundle exec jekyll b -d "_site$BASE_URL"
 
       - name: Test Site
+        working-directory: docs
         run: |
           bash tools/test.sh
 
       - name: Deploy
+        working-directory: docs
         run: |
           if [[ -n $BASE_URL ]]; then
             mv _site$BASE_URL _site-rename
