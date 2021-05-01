@@ -24,7 +24,6 @@ jobs:
         with:
           ruby-version: 2.7
           bundler-cache: true
-        working-directory: docs 
 
       - name: Check baseurl
         run: |
