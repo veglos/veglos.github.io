@@ -24,7 +24,6 @@ jobs:
         with:
           ruby-version: 2.7
           bundler-cache: true
-          working-directory: ./docs
 
       - name: Check baseurl
         run: |
@@ -32,14 +31,12 @@ jobs:
           if [[ -n $baseurl ]]; then
             echo "BASE_URL=$baseurl" >> $GITHUB_ENV
           fi
-        working-directory: ./docs
 
       - name: Build Site
         env:
           JEKYLL_ENV: production
         run: |
-          bundle exec jekyll b -d "_site$BASE_URL"
-        working-directory: ./docs        
+          bundle exec jekyll b -d "_site$BASE_URL"     
 
       - name: Deploy
         run: |
@@ -50,4 +47,3 @@ jobs:
           fi
 
           bash tools/deploy.sh
-        working-directory: ./docs
