@@ -8,7 +8,7 @@ tags: django docker python
 
 It is possible to develop only with Docker (rather than a local system). Therefore a virtual environment is not necessary since dependencies are always installed in the container. Also, environment variables are fetched with docker-compose.yml, and then again django-environ is not really necessary. However I want to be able to keep both options available, since Docker might not always be available.
 
-Full project available on GitHub: https://github.com/veglos/django-docker
+Full project available on GitHub: [https://github.com/veglos/django-docker](https://github.com/veglos/django-docker)
 
 ## Setup
 
@@ -23,6 +23,7 @@ venv\Scripts\activate.bat
 ```
 
 2. Initiate the git repository
+
 ```shell
 git init
 ```
@@ -75,12 +76,14 @@ pip install -r requirements.txt
 ```
 
 7. Create django project 'myproject' and the app 'myapp'
+
 ```shell
 django-admin startproject myproject .
 python manage.py startapp myapp
 ```
 
 8. Modify myproject/settings.py with:
+
 ``` yml
 import os
 import environ
@@ -101,7 +104,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)
 ```
 
-``` yml
+``` javascript
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -115,6 +118,7 @@ DATABASES = {
 ```
 
 9. Create **Docker** file with the following content:
+
 ``` yml
 FROM python:3
 
@@ -131,6 +135,7 @@ COPY . /usr/src/app
 ```
 
 10. Create **docker-compose.yml** with the following content:
+
 ``` yml
 version: "3.9"
    
@@ -162,6 +167,7 @@ volumes:
   app-database:
     name: app-database
 ```
+
 11. Lauch with docker
 
 ``` shell
@@ -171,6 +177,7 @@ docker-compose up
 Browse [localhost:8000](http://localhost:8000) to check if the project is up.
 
 Close containers with
+
 ``` shell
 docker-compose down
 ``` 
