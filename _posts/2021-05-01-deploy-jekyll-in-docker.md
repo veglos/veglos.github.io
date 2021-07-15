@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deploy Jekyll in Docker"
-categories: jekyll 
+categories: howto 
 tags: jekyll docker github-pages
 ---
 

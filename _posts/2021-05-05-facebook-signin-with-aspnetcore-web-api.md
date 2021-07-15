@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Facebook Sign In with ASP.NET Core Web API"
-categories: jekyll 
+categories: howto 
 tags: aspnetcore api facebook social
 ---
 
