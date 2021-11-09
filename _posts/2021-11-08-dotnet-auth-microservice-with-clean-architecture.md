@@ -14,9 +14,10 @@ The code of this project is available at [https://github.com/veglos/dotnet-auth-
    1. [Use Cases](#use-cases)
 3. [The Auth Microservice](#the-auth-microservice)
    1. [What about an API Gateway?](#what-about-an-api-gateway)
-   2. [Access Token vs Refresh Token](#access-token-vs-refresh-token)
-   3. [JWT, JWS, and JWE](#jwt-jws-and-jwe)
-   4. [How do other microservices know the Access Token is legit?](#how-do-other-microservices-know-the-access-token-is-legit)
+   2. [OAuth 2.0, OpenID Connect, and Json Web Token](#oauth-openid-jwt)
+   3. [Access Token vs Refresh Token](#access-token-vs-refresh-token)
+   4. [JWT, JWS, and JWE](#jwt-jws-and-jwe)
+   5. [How do other microservices know the Access Token is legit?](#how-do-other-microservices-know-the-access-token-is-legit)
 4. [The Project Structure](#the-project-structure)
    1. [Auth.Domain](#auth-domain)
    2. [Auth.Application](#auth-application)
@@ -144,7 +145,7 @@ Nowadays it is imperative for most microservices to have authentication and auth
 
 [The API Gateway](https://microservices.io/patterns/apigateway.html) may or may not handle authentication and authorization, and it can have more responsibilities than that, like response caching, circuit breaker, load balancing, etc., but it's main purpose is to be a single entry point to the entire system.
 
-### OAuth 2.0, OpenID Connect, and Json Web Token
+### OAuth 2.0, OpenID Connect, and Json Web Token <a name="oauth-openid-jwt"></a>
 
 There are Id Tokens and Access Tokens. Id Tokens hold information about who the user is (claims), and **the intended recipient is the client application** (i.e. to show "Welcome Carlos!", etc.). 
 On the other hand, Access Tokens hold information about what can be done (scopes) in a resource (i.e. fetch the user's photos, etc.), therefore **the intended recipient of such token is the user's resource**. Figure 5.1 depicts how an Access Token works.
