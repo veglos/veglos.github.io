@@ -3,7 +3,6 @@ layout: post
 title:  "An Auth Microservice with Clean Architecture"
 categories:  example
 tags: aspnetcore dotnet c# microservice clean hexagonal architecture jwt
-comments: true
 ---
 
 The code of this project is available at [https://github.com/veglos/dotnet-auth-microservice](https://github.com/veglos/dotnet-auth-microservice)
@@ -292,4 +291,3 @@ _*note: If the DI Container where in another project, for instance and Auth.DICo
 _There's no silver bullet_. There are many ways to implement a clean architecture, and many more ways to keep improving it forever. The important thing here is to grasp and understand the concepts and know how to identify them. 
 
 We must have a clear-cut boundary between layers and the direction of dependencies. The implementation of new features immediately _"smell weird"_ when the boundaries are not taken into consideration. For example, if the Auth.Application requires to import a third-party library to access an Excel document then there is a clear violation of the dependency rule (the application cannot depend on the infrastructure), and necessary measures are required to correct it.
-
