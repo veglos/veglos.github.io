@@ -1,11 +1,6 @@
----
-layout: post
-title:  "An Auth Microservice with Clean Architecture"
-categories:  example
-tags: aspnetcore dotnet c# microservice clean hexagonal architecture jwt
----
+From my blog at https://veglos.github.io/posts/dotnet-auth-microservice-with-clean-architecture/
 
-The code of this project is available at [https://github.com/veglos/dotnet-auth-microservice](https://github.com/veglos/dotnet-auth-microservice)
+The code of this project is available at https://github.com/veglos/dotnet-auth-microservice
 
 ## Table of contents
 
@@ -34,7 +29,7 @@ The code of this project is available at [https://github.com/veglos/dotnet-auth-
 
 In 2012 Robert C. Martin published a blog article called [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) where he wrote about the common features of different systems, like independence of the framework, independence of the database, independence of the UI, etc. Then in 2017 Martin published the book [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) that elaborate a further analysis on how a good architecture should be, but most importantly «why».
 
-![/clean-architecture](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-architecture.jpg)
+![/clean-architecture](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-architecture.jpg)
 
 _Figure 1.1: Robert C. Martin's Clean Architecture Diagram_
 
@@ -80,7 +75,7 @@ In summary:
 
 I made the diagram shown in figure 2.1 to illustrate the difference.
 
-![/hexagonal-architecture](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/hexagonal-architecture.jpg)
+![/hexagonal-architecture](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/hexagonal-architecture.jpg)
 
 _Figure 2.1: Hexagonal Architecture diagram_
 
@@ -90,7 +85,7 @@ _Figure 2.1: Hexagonal Architecture diagram_
 
 From the previous diagrams in figure 1.1 and figure 2.1, I designed the diagram displayed in figure 3.1. I kept the same color scheme to identify the boundaries.
 
-![/clean-1](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-1.jpg)
+![/clean-1](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-1.jpg)
 
 _Figure 3.1: Auth microservice architecture model_
 
@@ -102,7 +97,7 @@ The solution is composed of four projects:
 
 *_note_: It is possible to avoid the Auth.Infrastructure dependency by creating a DI Container project. I believe it's not worth the inconvenience in this situation, but it's totally possible.
 
-![/clean-2](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-2.jpg)
+![/clean-2](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-2.jpg)
 
 _Figure 3.2: Dependency relationship between projects_
 
@@ -123,7 +118,7 @@ Use cases are the heart of the application, they execute the business rules. Her
 >
 >– Martin, R.C. (2017). In Chapter 16 Independence. Clean Architecture (p. 152). Prentice Hall.
 
-![/clean-3](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-3.jpg)
+![/clean-3](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/clean-3.jpg)
 
 _Figure 3.3: Use cases cutting through the horizontal layers_
 
@@ -140,7 +135,7 @@ An Auth Microservice is a centralized authority that grants authentication and a
 
 Nowadays it is imperative for most microservices to have authentication and authorization, and while it is possible to implement them in every microservice, it is far more convenient to rely on an Auth Microservice. We don't want to login (ask for credentials) in every single microservice. Let the microservice focus on the scope they were meant to handle, nothing more.
 
-![/auth-microservice](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/auth-microservice.jpg)
+![/auth-microservice](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/auth-microservice.jpg)
 
 *Figure 4.1: The Auth Microservice handles the authentication and authorization of the user/client*
 
@@ -157,11 +152,11 @@ The Id Token is defined by the [OpenID Connect Specification](https://openid.net
 
 **It is not the scope of this article to deal with the Client App (or any front-end project for that matter), hence I dealt mostly with Access Tokens, not so much ID Tokens.**
 
-![auth-sequence](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/auth-sequence.jpg)
+![auth-sequence](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/auth-sequence.jpg)
 
 *Figure 4.2: Sequence diagram of the process of authorization by Access Token*
 
-### 4.3. Access Token vs Refresh Token <a name="access-token-vs-refresh-token"></a>
+### 4.3 Access Token vs Refresh Token <a name="access-token-vs-refresh-token"></a>
 
 There is a third and last type of token called the Refresh Token.
 
@@ -189,7 +184,7 @@ A public-private key pair is used when the Auth Microservice uses asymmetric cry
 
 It is safer to keep the signing key (private key) in the Auth Microservice and only share the public key, no matter how much you trust the other microservices. That's why this project uses **asymmetric** cryptography.
 
-![asymmetric](/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/asymmetric.jpg)
+![asymmetric](https://veglos.github.io/assets/img/2021-11-08-dotnet-auth-microservice-with-clean-architecture/asymmetric.jpg)
 
 _Figure 4.3: Simplified example of asymmetric cryptography_
 
