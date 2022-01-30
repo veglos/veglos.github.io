@@ -38,14 +38,14 @@ public class Customer {
 
     public void Save() {
                 
-        if(_repository == 'SQLServer') {
+        if(_repository == "SQLServer") {
             /* Saving in SQLServer*/    
         }
-        else if(_repository == 'MongoDB') {
+        else if(_repository == "MongoDB") {
             /* Saving in MongoDB*/
         }
         else{
-            throw new Exception('Database not supported');
+            throw new Exception("Database not supported");
         }
     }
 }
@@ -77,14 +77,14 @@ public class CustomerRepository {
 
     public void Save(Customer customer){
         
-        if(_repository == 'SQLServer'){
+        if(_repository == "SQLServer"){
             /* Saving in SQLServer*/
         }
-        else if(_repository == 'MongoDB'){
+        else if(_repository == "MongoDB"){
             /* Saving in MongoDB*/
         }
         else{
-            throw new Exception('Database not supported');
+            throw new Exception("Database not supported");
         }
     }
 }
@@ -371,12 +371,12 @@ public class CustomerRepository {
     public void Save(Customer customer){
         
         /* WARNING: The high level module CustomerRepository DEPENDS on the low level modules SQLServerRepository */
-        if(_repository == 'SQLServer'){
+        if(_repository == "SQLServer"){
             var repository = new SQLServerRepository();
             /* Saving in SQLServer*/
         }
         else{
-            throw new Exception('Database not supported');
+            throw new Exception("Database not supported");
         }
     }
 }
